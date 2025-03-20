@@ -1,5 +1,7 @@
 # rollup-plugin-mcp
 
+> Disclaimer: This is a work in progress and welcome contributions. The API and functionality may change as we refine the plugin.
+
 MCP Server integration for Rollup.
 
 ## Features
