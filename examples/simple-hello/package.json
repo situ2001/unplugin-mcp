@@ -1,0 +1,19 @@
+{
+  "name": "example-hello-world",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "build": "rollup -c ./rollup.config.js",
+    "dev": "export DEBUG=* && rollup -c ./rollup.config.js -w"
+  },
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-typescript": "^12.1.2",
+    "rollup": "^4.35.0",
+    "rollup-plugin-mcp": "workspace:*"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.6.1"
+  }
+}

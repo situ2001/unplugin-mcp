@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    // "declaration": true,
+    // "declarationDir": "dist",
+    "lib": [
+      "ESNext",
+    ],
+    "resolveJsonModule": true,
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "strict": true,
+    "removeComments": true
+  }
+}

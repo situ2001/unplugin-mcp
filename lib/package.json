@@ -1,0 +1,62 @@
+{
+  "name": "rollup-plugin-mcp",
+  "type": "module",
+  "version": "0.0.2",
+  "description": "A Rollup plugin that creates a Model Context Protocol (MCP) server during build and continues running after the build process, exposing module dependency graphs, build configurations, error information, and more contextual data to MCP clients.",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./tools": {
+      "import": "./dist/tools/index.js",
+      "require": "./dist/tools/index.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "rollup",
+    "rollup-plugin",
+    "mcp",
+    "modelcontextprotocol"
+  ],
+  "author": "situ2001 <yongcong2001@outlook.com>",
+  "license": "MIT",
+  "packageManager": "pnpm@10.6.2+sha512.47870716bea1572b53df34ad8647b42962bc790ce2bf4562ba0f643237d7302a3d6a8ecef9e4bdfc01d23af1969aa90485d4cebb0b9638fa5ef1daef656f6c1b",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/situ2001/rollup-plugin-mcp.git"
+  },
+  "devDependencies": {
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-typescript": "^12.1.2",
+    "@types/debug": "^4.1.12",
+    "@types/node": "^22.13.10",
+    "@types/promise-deferred": "^2.0.5",
+    "rollup": "^4.35.0",
+    "tslib": "^2.8.1",
+    "typescript": "^5.8.2"
+  },
+  "dependencies": {
+    "@koa/router": "^13.1.0",
+    "@modelcontextprotocol/sdk": "^1.6.1",
+    "@types/koa": "^2.15.0",
+    "@types/koa__router": "^12.0.4",
+    "debug": "^4.4.0",
+    "koa": "^2.16.0",
+    "picocolors": "^1.1.1",
+    "promise-deferred": "^2.0.4",
+    "rollup-plugin-node-externals": "^8.0.0",
+    "zod": "^3.24.2"
+  }
+}
