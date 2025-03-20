@@ -1,6 +1,6 @@
 # rollup-plugin-mcp
 
-A rollup plugin that creates a Model Context Protocol (MCP) server to provide tools to LLMs (Large Language Models).
+MCP Server integration for Rollup.
 
 ## Features
 
