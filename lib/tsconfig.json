@@ -3,8 +3,8 @@
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "Bundler",
-    // "declaration": true,
-    // "declarationDir": "dist",
+    "declaration": true,
+    "declarationDir": "./dist",
     "lib": [
       "ESNext",
     ],
@@ -13,6 +13,16 @@
     "skipLibCheck": true,
     "esModuleInterop": true,
     "strict": true,
-    "removeComments": true
-  }
+    "removeComments": false
+  },
+  "include": [
+    "src/**/*.ts",
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "lib",
+    "test",
+    "**/*.test.ts"
+  ],
 }
