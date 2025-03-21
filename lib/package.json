@@ -64,6 +64,7 @@
     "picocolors": "^1.1.1",
     "promise-deferred": "^2.0.4",
     "rollup-plugin-node-externals": "^8.0.0",
+    "unplugin": "^2.2.1",
     "zod": "^3.24.2"
   },
   "publishConfig": {

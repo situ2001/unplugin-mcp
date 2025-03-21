@@ -65,16 +65,28 @@ export const serverManager = {
       return;
     }
 
+
     return new Promise((resolve) => {
+      globalState.isServerStarted = true;
+
       globalState.httpServer!.listen(
         options.port,
         options.host,
         () => {
           console.log(picocolors.green(`MCP SSE Server Listening on http://${options.host}:${options.port}`));
-          globalState.isServerStarted = true;
           resolve();
         }
       );
+
+      globalState.httpServer!.on('error', (err) => {
+        console.error(picocolors.red(`Error starting HTTP server: ${err.message}`));
+        globalState.isServerStarted = false;
+      });
+
+      globalState.httpServer!.on('close', () => {
+        console.log(picocolors.yellow('HTTP server closed'));
+        globalState.isServerStarted = false;
+      });
     });
   },
 

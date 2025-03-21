@@ -1,15 +1,15 @@
-import type { Plugin, RollupOptions } from 'rollup';
 import { McpPluginOptions } from './types';
-import { initMcpServer, RollupMcpServer, RollupMcpTool } from './mcp-server';
-import { createHttpServer, setupRouteForMcpServer } from './web-server';
+import { initMcpServer, UnpluginMcpServer, UnpluginMcpTool } from './mcp-server';
+import { createHttpServer } from './web-server';
 import picocolors from 'picocolors';
 import process from 'node:process';
 import { serverManager } from './globals';
+import { createRollupPlugin, createUnplugin } from 'unplugin';
 
-export { RollupMcpTool } from './mcp-server';
+export { UnpluginMcpTool as RollupMcpTool } from './mcp-server';
 export { createHttpServer, setupRouteForMcpServer } from './web-server';
 
-export default async function mcp(pluginOpt: McpPluginOptions): Promise<Plugin> {
+const unpluginFactory = (pluginOpt: McpPluginOptions) => {
   const {
     port: httpServerPort = 14514,
     host: httpServerHost = 'localhost',
@@ -35,29 +35,31 @@ export default async function mcp(pluginOpt: McpPluginOptions): Promise<Plugin> 
   }
 
   // Initialize or use provided MCP server
-  let mcpServer = await (
+  let mcpServer = (
     pluginOpt.mcpServer?.(pluginOpt)
     ?? initMcpServer(pluginOpt)
   );
 
   // Optionally setup the server with custom handlers
   if (pluginOpt.setupMcpServer) {
-    mcpServer = await pluginOpt.setupMcpServer(mcpServer);
+    mcpServer = pluginOpt.setupMcpServer(mcpServer);
   }
 
-  const rollupMcpServer = RollupMcpServer.createFromExistingMcpServer(mcpServer);
+  const rollupMcpServer = new UnpluginMcpServer(mcpServer);
 
   // Initialize with default tools
   // Not adding them to the server yet
-  const defaultTools: RollupMcpTool[] = [
+  const defaultTools: UnpluginMcpTool[] = [
     // new BuildErrorTool(),
     // new BuildConfigTool(),
     // new ModuleTool(),
   ];
 
   // Add custom tools if provided
-  const customTools = await pluginOpt.provideRollupMcpTools?.() ?? [];
-  await rollupMcpServer.registerRollupFunctionActions([...defaultTools, ...customTools]);
+  const customTools = pluginOpt.provideUnpluginMcpTools?.() ?? [];
+  rollupMcpServer.registerUnpluginMcpTools([...defaultTools, ...customTools]);
+
+  console.log('current tools', customTools);
 
   const httpServerOptions = {
     port: httpServerPort,
@@ -66,26 +68,32 @@ export default async function mcp(pluginOpt: McpPluginOptions): Promise<Plugin> 
   }
 
   let httpServer = serverManager.getHttpServer();
+
   if (!httpServer) {
-    httpServer = await (
-      pluginOpt.httpServer?.(mcpServer, httpServerOptions)
-      ?? createHttpServer(mcpServer, httpServerOptions)
-    );
+    let httpServer = serverManager.getHttpServer();
+    if (!httpServer) {
+      httpServer = (
+        pluginOpt.httpServer?.(mcpServer, httpServerOptions)
+        ?? createHttpServer(mcpServer, httpServerOptions)
+      );
 
-    serverManager.setHttpServer(httpServer);
-    console.log(
-      picocolors.green('MCP server HTTP server created')
-    );
+      serverManager.setHttpServer(httpServer);
+      console.log(
+        picocolors.green('MCP server HTTP server created')
+      );
+    }
+
+    if (!serverManager.isRunning()) {
+      serverManager.startHttpServer(httpServerOptions);
+    }
   }
 
-  if (!serverManager.isRunning()) {
-    await serverManager.startHttpServer(httpServerOptions);
-  }
+  const plugins = rollupMcpServer.getUnpluginsFromTools();
 
-  const hooks = await rollupMcpServer.getRollupHooks();
-
-  return {
-    name: 'mcp',
-    ...hooks,
-  }
+  return plugins;
 }
+
+export const unplugin = createUnplugin(unpluginFactory);
+export default unplugin;
+
+export const rollupPlugin = createRollupPlugin(unpluginFactory);

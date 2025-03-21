@@ -1,13 +1,13 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import { PluginHooks } from "rollup";
-import { RollupMcpTool, RollupMcpToolSetupOptions } from "../mcp-server";
+import { UnpluginMcpTool, UnpluginMcpToolSetupOptions } from "../mcp-server";
 import DeferredCtor, { Deferred } from "promise-deferred";
 
 import { createDebug } from "../utils";
+import { UnpluginOptions } from "unplugin";
 
 const debug = createDebug('BuildErrorTool');
 
-export class BuildErrorTool implements RollupMcpTool {
+export class BuildErrorTool implements UnpluginMcpTool {
   private buildError: Deferred<Error | undefined> = new DeferredCtor<Error | undefined>();
 
   affectsBuildProcess: boolean = false;
@@ -16,7 +16,7 @@ export class BuildErrorTool implements RollupMcpTool {
     return (await this.buildError.promise) !== undefined;
   }
 
-  setupMcpServer(mcpServer: McpServer, options?: RollupMcpToolSetupOptions) {
+  setupMcpServer(mcpServer: McpServer, options?: UnpluginMcpToolSetupOptions) {
     const { tag } = options ?? {};
 
     mcpServer.tool(
@@ -46,19 +46,24 @@ export class BuildErrorTool implements RollupMcpTool {
     return mcpServer;
   }
 
-  registerRollupHooks(options?: RollupMcpToolSetupOptions): Partial<PluginHooks> {
+  registerPlugins(options?: UnpluginMcpToolSetupOptions): UnpluginOptions {
     const self = this;
 
     return {
+      name: 'build-error-tool',
+
       buildStart() {
         debug('Build started');
         self.buildError = new DeferredCtor<Error | undefined>();
       },
 
-      buildEnd(error: Error | undefined) {
-        self.buildError.resolve(error);
-        debug('Build error resolved in registerRollupHooks');
-      },
+      rollup: {
+        buildEnd(error: Error | undefined) {
+          debug('Build ended');
+          self.buildError.resolve(error);
+          debug('Build error resolved in registerRollupHooks');
+        },
+      }
     };
   }
 }

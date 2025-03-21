@@ -1,4 +1,4 @@
 packages:
-  - "lib"
   - "examples/*"
-  - "unplugin"
+  - "rollup"
+  - "lib"

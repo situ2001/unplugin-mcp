@@ -1,11 +1,12 @@
-import { InputOptions, PluginHooks } from "rollup";
-import { RollupMcpTool, RollupMcpToolSetupOptions } from "../mcp-server";
+import { InputOptions } from "rollup";
+import { UnpluginMcpTool, UnpluginMcpToolSetupOptions } from "../mcp-server";
 import DeferredCtor, { Deferred } from 'promise-deferred';
 
 import { createDebug } from "../utils";
+import { UnpluginOptions } from "unplugin";
 const debug = createDebug('BuildConfigTool');
 
-export class BuildConfigTool implements RollupMcpTool {
+export class BuildConfigTool implements UnpluginMcpTool {
   private buildConfig: Deferred<InputOptions>;
 
   affectsBuildProcess: boolean = false;
@@ -36,19 +37,22 @@ export class BuildConfigTool implements RollupMcpTool {
     return mcpServer;
   }
 
-  registerRollupHooks(options?: RollupMcpToolSetupOptions): Partial<PluginHooks> {
+  registerPlugins(options?: UnpluginMcpToolSetupOptions): UnpluginOptions {
     let self = this;
 
     return {
-      buildStart(config: InputOptions) {
-        debug('Build started');
-        self.buildConfig = new DeferredCtor<InputOptions>();
-      },
+      name: 'build-config-tool',
 
-      options(config) {
-        debug('options called');
-        self.buildConfig.resolve(config);
-        debug('Build config resolved');
+      rollup: {
+        buildStart(config: InputOptions) {
+          debug('Build started');
+        },
+
+        options(config) {
+          debug('options called');
+          self.buildConfig.resolve(config);
+          debug('Build config resolved');
+        }
       }
     }
   }

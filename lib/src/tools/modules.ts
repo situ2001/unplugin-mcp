@@ -1,12 +1,13 @@
-import { ModuleInfo, Plugin, PluginHooks } from "rollup";
-import { RollupMcpTool, RollupMcpToolSetupOptions } from "../mcp-server";
+import { ModuleInfo } from "rollup";
+import { UnpluginMcpTool, UnpluginMcpToolSetupOptions } from "../mcp-server";
 import DeferredCtor, { Deferred } from 'promise-deferred';
 import zod from 'zod';
 
 import { createDebug } from "../utils";
+import { UnpluginOptions } from "unplugin";
 const debug = createDebug('ModuleTool');
 
-export class ModuleTool implements RollupMcpTool {
+export class ModuleTool implements UnpluginMcpTool {
   private moduleGraph = new Map<string, ModuleInfo>();
   private graphReady: Deferred<boolean>;
 
@@ -79,25 +80,29 @@ export class ModuleTool implements RollupMcpTool {
     return mcpServer;
   }
 
-  registerRollupHooks(options?: RollupMcpToolSetupOptions): Partial<PluginHooks> {
+  registerPlugins(options?: UnpluginMcpToolSetupOptions): UnpluginOptions {
     const self = this;
 
     return {
-      buildStart() {
-        self.graphReady = new DeferredCtor<boolean>();
-        // Reset the module graph when a build starts
-        self.moduleGraph.clear();
-      },
+      name: 'module-tool',
 
-      moduleParsed(moduleInfo) {
-        // Store each module's info as it's parsed
-        self.moduleGraph.set(moduleInfo.id, moduleInfo);
-      },
+      rollup: {
+        buildStart() {
+          self.graphReady = new DeferredCtor<boolean>();
+          // Reset the module graph when a build starts
+          self.moduleGraph.clear();
+        },
 
-      buildEnd() {
-        // Signal that the graph is complete
-        self.graphReady.resolve(true);
-        debug(`Module graph built with ${self.moduleGraph.size} modules`);
+        moduleParsed(moduleInfo) {
+          // Store each module's info as it's parsed
+          self.moduleGraph.set(moduleInfo.id, moduleInfo);
+        },
+
+        buildEnd() {
+          // Signal that the graph is complete
+          self.graphReady.resolve(true);
+          debug(`Module graph built with ${self.moduleGraph.size} modules`);
+        }
       }
     };
   }

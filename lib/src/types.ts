@@ -1,27 +1,27 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import { RollupMcpServer, RollupMcpTool } from "./mcp-server";
+import { UnpluginMcpServer, UnpluginMcpTool } from "./mcp-server";
 import http from "node:http";
 
 export interface McpPluginOptions {
   /**
    * Provide a custom @type{McpServer} to be used by the plugin.
    * 
-   * @returns McpServer | Promise<McpServer>
+   * @returns McpServer
    */
-  mcpServer?: (pluginOpt: McpPluginOptions) => McpServer | Promise<McpServer>;
+  mcpServer?: (pluginOpt: McpPluginOptions) => McpServer;
 
   /**
    * Setup the @type{McpServer} instance. This function exposes the `McpServer` instance
    * right after when it is created.
    */
-  setupMcpServer?: (mcpServer: McpServer) => McpServer | Promise<McpServer>;
+  setupMcpServer?: (mcpServer: McpServer) => McpServer;
 
   /**
-   * Register @type{RollupMcpTool} to the RollupMcpServer instance.
+   * Register @type{UnpluginMcpTool} to the UnpluginMcpServer instance.
    * 
-   * This allows you to add custom tools that conform to the @type{RollupMcpTool} interface.
+   * This allows you to add custom tools that conform to the @type{UnpluginMcpTool} interface.
    */
-  provideRollupMcpTools?: () => RollupMcpTool[] | Promise<RollupMcpTool[]>;
+  provideUnpluginMcpTools?: () => UnpluginMcpTool[];
 
   /**
    * The port to use for the @type{http.Server} that serves the MCP server.
@@ -52,7 +52,7 @@ export interface McpPluginOptions {
   * @param option The options for the HTTP server.
   * @param mcpServer The MCP server instance, which will be used to bind the HTTP server.
   */
-  httpServer?: (mcpServer: McpServer, option: HttpServerOptions) => http.Server | Promise<http.Server>;
+  httpServer?: (mcpServer: McpServer, option: HttpServerOptions) => http.Server;
 
   /**
    * If this is set to true, the plugin will block the build process from exiting

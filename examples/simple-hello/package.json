@@ -11,7 +11,8 @@
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-typescript": "^12.1.2",
     "rollup": "^4.35.0",
-    "rollup-plugin-mcp": "workspace:*"
+    "rollup-plugin-mcp": "workspace:*",
+    "unplugin-mcp": "workspace:*"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.6.1"
