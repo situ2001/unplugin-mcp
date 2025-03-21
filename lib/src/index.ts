@@ -11,9 +11,9 @@ export { createHttpServer, setupRouteForMcpServer } from './web-server';
 
 export default async function mcp(pluginOpt: McpPluginOptions): Promise<Plugin> {
   const {
-    httpServerPort = 14514,
-    httpServerHost = 'localhost',
-    httpServerPath = '/mcp',
+    port: httpServerPort = 14514,
+    host: httpServerHost = 'localhost',
+    basePath: httpServerPath = '/mcp',
     useOnlyInWatchMode = true,
   } = pluginOpt;
 

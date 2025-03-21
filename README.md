@@ -50,16 +50,7 @@ export default defineConfig({
 
 ### Options
 
-| Option                  | Type     | Default     | Description                                 |
-| ----------------------- | -------- | ----------- | ------------------------------------------- |
-| `httpServerPort`        | number   | 14514       | Port for the HTTP server                    |
-| `httpServerHost`        | string   | 'localhost' | Host for the HTTP server                    |
-| `httpServerPath`        | string   | '/mcp'      | Base path for MCP endpoints                 |
-| `useOnlyInWatchMode`    | boolean  | true        | Whether to run only in watch mode           |
-| `mcpServer`             | function | undefined   | Custom MCP server factory                   |
-| `setupMcpServer`        | function | undefined   | Custom function to configure the MCP server |
-| `provideRollupMcpTools` | function | undefined   | Function to provide custom MCP tools        |
-| `httpServer`            | function | undefined   | Custom HTTP server factory                  |
+Check `McpPluginOptions` in [types file](./lib/src/types.ts) for all available options.
 
 ### Custom Tools
 
