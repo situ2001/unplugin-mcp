@@ -2,7 +2,7 @@
 
 > Disclaimer: This is a work in progress and welcome contributions. The API and functionality may change as we refine the plugin.
 
-> Disclaimer: This plugin is migrated from rollup plugin and it is untested and implemented for other build tools. If you are interested in this plugin, please open an issue or PR.
+> Disclaimer: This plugin is migrated from rollup plugin and it is untested and unimplemented for other build tools. If you are interested in this plugin, please open an issue or PR.
 
 MCP Server integration for Rollup and other build tools.
 
