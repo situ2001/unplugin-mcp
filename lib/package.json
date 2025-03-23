@@ -1,7 +1,7 @@
 {
   "name": "unplugin-mcp",
   "type": "module",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "description": "A unplugin plugin that creates a Model Context Protocol (MCP) server during build and continues running after the build process, exposing module dependency graphs, build configurations, error information, and more contextual data to MCP clients.",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
