@@ -164,9 +164,9 @@ It initializes and setup these components:
 
 After these steps, the plugin can:
 
-1. Handle incoming requests from MCP client and respond
-2. React to hooks triggered by the build tool during the build process
-3. Provide build context and enable AI-assisted build control
+1. Handle incoming requests from MCP client and responding to them.
+2. React to hooks triggered by the build tool during the build process.
+3. Provide build contextual information to the MCP client.
 
 ## License
 
