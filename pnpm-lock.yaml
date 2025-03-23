@@ -91,9 +91,6 @@ importers:
       rollup:
         specifier: ^4.35.0
         version: 4.35.0
-      rollup-plugin-delete:
-        specifier: ^3.0.1
-        version: 3.0.1(rollup@4.35.0)
       rollup-plugin-typescript2:
         specifier: ^0.36.0
         version: 0.36.0(rollup@4.35.0)(typescript@5.8.2)
