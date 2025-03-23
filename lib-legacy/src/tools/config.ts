@@ -42,7 +42,6 @@ export class BuildConfigTool implements RollupMcpTool {
     return {
       buildStart(config: InputOptions) {
         debug('Build started');
-        self.buildConfig = new DeferredCtor<InputOptions>();
       },
 
       options(config) {
