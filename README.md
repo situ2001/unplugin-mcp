@@ -1,8 +1,7 @@
 # unplugin-mcp
 
-> ⚠️ Disclaimer: This is a work in progress. The API and functionality may change as we refine the plugin.
-
-> ⚠️ Disclaimer: While this plugin started as a Rollup plugin and has just been migrated to the unplugin, support for build tools other than Rollup is still being implemented and tested. If you're interested in this plugin for other build tools, please open an issue or PR.
+> [!IMPORTANT]
+> This is a work in progress. Not ready for production use yet. If you are interested in and want to help, feel free to open an issue or PR.
 
 A unified MCP (Model Context Protocol) plugin that creates and manages an MCP Server and provides MCP tools by which AI can know more about your codebase, build tools, and even control the build process. It works with multiple JavaScript build tools supported by unplugin, including Rollup, Vite, Webpack, and others.
 
