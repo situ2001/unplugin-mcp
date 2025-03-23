@@ -121,7 +121,7 @@ Check `McpPluginOptions` in [types file](./lib/src/types.ts) for all available o
 - ✅ = Supported
 - ❌ = Not yet implemented
 
-### Custom Tools
+## Custom Tools
 
 You can extend the plugin with custom tools implementing the `UnpluginMcpTool` interface:
 
