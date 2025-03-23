@@ -6,7 +6,7 @@ import process from 'node:process';
 import { serverManager } from './globals';
 import { createRollupPlugin, createUnplugin } from 'unplugin';
 
-export { UnpluginMcpTool as RollupMcpTool } from './mcp-server';
+export { UnpluginMcpTool, UnpluginMcpToolSetupOptions } from './mcp-server';
 export { createHttpServer, setupRouteForMcpServer } from './web-server';
 
 const unpluginFactory = (pluginOpt: McpPluginOptions = {}) => {

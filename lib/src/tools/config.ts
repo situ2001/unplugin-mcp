@@ -18,6 +18,8 @@ export class BuildConfigTool implements UnpluginMcpTool {
   setupMcpServer(mcpServer: any, options?: any) {
     mcpServer.tool(
       `get-build-config`,
+      "Get build configuration",
+      {},
       async () => {
         debug('get-build-config called');
         const cfg = await this.buildConfig.promise;
