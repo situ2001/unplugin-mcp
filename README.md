@@ -63,7 +63,7 @@ pnpm add -D rollup-plugin-mcp
 
 ### Build Tool Integration
 
-Here is an example of how to use the plugin with Rollup:
+Here is an example of how to use the plugin with Rollup. The server will be started automatically when you run `rollup` in watch mode (`rollup -w`).
 
 ```js
 // rollup.config.js
