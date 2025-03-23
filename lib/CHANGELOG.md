@@ -1,5 +1,13 @@
 # rollup-plugin-mcp
 
+## 0.0.7
+
+### Patch Changes
+
+- 1b8db60: docs: update README and descriptions
+- c1c8270: docs: update description in package.json
+- 415dc8b: chore: update exports
+
 ## 0.0.6
 
 ## 0.0.4
