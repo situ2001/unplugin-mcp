@@ -146,9 +146,7 @@ export class BuildConfigTool implements UnpluginMcpTool {
       "Get build configuration",
       {},
       async () => {
-        debug('get-build-config called');
         const cfg = await this.buildConfig.promise;
-        debug('Build config resolved');
 
         return {
           content: [
