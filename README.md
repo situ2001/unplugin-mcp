@@ -10,7 +10,7 @@ Here is the vision of this plugin, to provide a unified MCP Server and MCP tools
 
 ```mermaid
 flowchart LR
-    subgraph "Bundlers"
+    subgraph "Build tools"
         Rollup["Rollup"]
         Vite["Vite"]
         ESBuild["ESBuild"]
@@ -26,7 +26,7 @@ flowchart LR
         HTTPServer["HTTP Server"]
     end
 
-    subgraph "MCP Client"
+    subgraph "MCP Clients"
         Cursor["Cursor"]
         VSCode["VSCode"]
         More["More"]
