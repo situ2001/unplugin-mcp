@@ -6,6 +6,39 @@
 
 A unified MCP (Model Context Protocol) plugin that creates and manages an MCP Server and provides MCP tools by which AI can know more about your codebase, build tools, and even control the build process. It works with multiple JavaScript build tools supported by unplugin, including Rollup, Vite, Webpack, and others.
 
+Here is the vision of this plugin, to provide a unified MCP Server and MCP tools to MCP Client.
+
+```mermaid
+flowchart LR
+    subgraph "Bundlers"
+        Rollup["Rollup"]
+        Vite["Vite"]
+        ESBuild["ESBuild"]
+        Webpack["Webpack"]
+        Rspack["Rspack"]
+        Rolldown["Rolldown"]
+    end
+
+    subgraph "unplugin-mcp (This plugin)"
+        unplugin["unplugin"]
+        McpTool["UnpluginMcpTool"]
+        McpServer["MCP Server"]
+        HTTPServer["HTTP Server"]
+    end
+
+    subgraph "MCP Client"
+        Cursor["Cursor"]
+        VSCode["VSCode"]
+        More["More"]
+    end
+
+    Rollup & Webpack & Vite & ESBuild & Rspack & Rolldown --> unplugin
+    unplugin --> McpTool
+    McpTool --> McpServer
+    McpServer --> HTTPServer
+    HTTPServer --> Cursor & VSCode & More
+```
+
 ## Features
 
 - 🚀 **Cross-Platform MCP Integration**: Creates and manages an MCP server seamlessly across multiple build tools.
