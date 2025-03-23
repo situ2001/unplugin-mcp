@@ -2,7 +2,7 @@
   "name": "rollup-plugin-mcp",
   "type": "module",
   "version": "0.0.6",
-  "description": "A Rollup plugin that creates a Model Context Protocol (MCP) server during build and continues running after the build process, exposing module dependency graphs, build configurations, error information, and more contextual data to MCP clients.",
+  "description": "A rollup plugin that creates an MCP Server to provide MCP tools.",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
