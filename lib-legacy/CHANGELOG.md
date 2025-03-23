@@ -1,5 +1,12 @@
 # rollup-plugin-mcp
 
+## 0.0.6
+
+### Patch Changes
+
+- 2a82750: refactor: make rollup-plugin-mcp a mirror package of unplugin
+  - unplugin-mcp@0.0.6
+
 ## 0.0.5
 
 ### Patch Changes
