@@ -4,7 +4,7 @@
 
 > Disclaimer: This plugin is migrated from rollup plugin and it is untested and unimplemented for other build tools. If you are interested in this plugin, please open an issue or PR.
 
-MCP Server integration for Rollup and other build tools.
+A unified plugin that creates an MCP Server to provide MCP tools. It works with many JS build tools, like Rollup, Vite, Webpack, and others.
 
 ## Features
 
