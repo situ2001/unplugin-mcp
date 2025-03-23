@@ -1,5 +1,9 @@
 # unplugin-mcp
 
+[![npm version](https://img.shields.io/npm/v/unplugin-mcp?style=flat&colorA=080f12&colorB=1fa669)](https://www.npmjs.com/package/unplugin-mcp)
+[![npm download](https://img.shields.io/npm/dt/unplugin-mcp?style=flat&colorA=080f12&colorB=1fa669)](https://www.npmjs.com/package/unplugin-mcp)
+![npm license](https://img.shields.io/npm/l/unplugin-mcp?style=flat&colorA=080f12&colorB=1fa669)
+
 > [!IMPORTANT]
 > This is a work in progress. Not ready for production use yet. If you are interested in and want to help, feel free to open an issue or PR.
 
