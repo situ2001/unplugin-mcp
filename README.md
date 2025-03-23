@@ -69,8 +69,8 @@ Check `McpPluginOptions` in [types file](./lib/src/types.ts) for all available o
 | `BuildConfigTool` | Inspect build configuration             |   ✅    |
 | `BuildErrorTool`  | Debug build errors                      |   ✅    |
 
-✅ = Supported
-❌ = Not yet implemented
+- ✅ = Supported
+- ❌ = Not yet implemented
 
 ### Custom Tools
 
