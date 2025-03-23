@@ -61,6 +61,8 @@ pnpm add -D rollup-plugin-mcp
 
 ## Usage
 
+### Build Tool Integration
+
 Here is an example of how to use the plugin with Rollup:
 
 ```js
@@ -87,6 +89,20 @@ export default defineConfig({
 ```
 
 🚧 Usage on other bundlers is on the way.
+
+### Usage in Cursor
+
+Just add a MCP Server to Cursor Settings. For example, in `~/.config/cursor/mcp.json`:
+
+```json
+{
+  "mcpServers": {
+    "rollup": {
+      "url": "http://localhost:14514/mcp/sse"
+    }
+  }
+}
+```
 
 ### Options
 
