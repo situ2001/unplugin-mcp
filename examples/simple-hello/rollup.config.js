@@ -14,7 +14,7 @@ export default defineConfig({
   },
   plugins: [
     mcp({
-      provideRollupMcpTools: () => [
+      provideUnpluginMcpTools: () => [
         new ModuleTool(),
         new BuildConfigTool(),
         new BuildErrorTool()
