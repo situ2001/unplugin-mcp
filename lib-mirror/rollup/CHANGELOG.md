@@ -1,5 +1,17 @@
 # rollup-plugin-mcp
 
+## 0.0.7
+
+### Patch Changes
+
+- 1b8db60: docs: update README and descriptions
+- c1c8270: docs: update description in package.json
+- c234867: docs: update description in package.json
+- Updated dependencies [1b8db60]
+- Updated dependencies [c1c8270]
+- Updated dependencies [415dc8b]
+  - unplugin-mcp@0.0.7
+
 ## 0.0.6
 
 ### Patch Changes
