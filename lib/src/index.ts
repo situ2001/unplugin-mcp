@@ -9,7 +9,7 @@ import { createRollupPlugin, createUnplugin } from 'unplugin';
 export { UnpluginMcpTool as RollupMcpTool } from './mcp-server';
 export { createHttpServer, setupRouteForMcpServer } from './web-server';
 
-const unpluginFactory = (pluginOpt: McpPluginOptions) => {
+const unpluginFactory = (pluginOpt: McpPluginOptions = {}) => {
   const {
     port: httpServerPort = 14514,
     host: httpServerHost = 'localhost',
