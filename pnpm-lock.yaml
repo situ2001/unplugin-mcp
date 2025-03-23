@@ -130,6 +130,9 @@ importers:
       rollup-plugin-node-externals:
         specifier: ^8.0.0
         version: 8.0.0(rollup@4.35.0)
+      unplugin-mcp:
+        specifier: workspace:*
+        version: link:../lib
       zod:
         specifier: ^3.24.2
         version: 3.24.2

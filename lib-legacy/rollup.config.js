@@ -3,9 +3,17 @@ import { defineConfig } from 'rollup';
 import { readFileSync } from 'node:fs';
 import nodeExternals from 'rollup-plugin-node-externals';
 import json from '@rollup/plugin-json';
-import del from 'rollup-plugin-delete'
 
 const pkg = JSON.parse(readFileSync('./package.json','utf8'));
+let tsconfigOverride = { compilerOptions: { declaration: false } };
+const plugins = [
+  nodeExternals(),
+  json(),
+  typescript({
+    tsconfig: './tsconfig.json',
+    tsconfigOverride
+  }),
+];
 
 export default defineConfig(
   [
@@ -23,13 +31,7 @@ export default defineConfig(
           sourcemap: true,
         }
       ],
-      plugins: [
-        nodeExternals(),
-        json(),
-        typescript({
-          tsconfig: './tsconfig.json',
-        }),
-      ],
+      plugins
     },
     {
       input: 'src/tools/index.ts',
@@ -45,13 +47,7 @@ export default defineConfig(
           sourcemap: true,
         }
       ],
-      plugins: [
-        nodeExternals(),
-        json(),
-        typescript({
-          tsconfig: './tsconfig.json',
-        }),
-      ],
+      plugins
     }
   ]
 );

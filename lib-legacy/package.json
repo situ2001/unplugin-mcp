@@ -63,7 +63,8 @@
     "picocolors": "^1.1.1",
     "promise-deferred": "^2.0.4",
     "rollup-plugin-node-externals": "^8.0.0",
-    "zod": "^3.24.2"
+    "zod": "^3.24.2",
+    "unplugin-mcp": "workspace:*"
   },
   "publishConfig": {
     "access": "public"
