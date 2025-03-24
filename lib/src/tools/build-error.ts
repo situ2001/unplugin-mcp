@@ -63,6 +63,26 @@ export class BuildErrorTool implements UnpluginMcpTool {
           self.buildError.resolve(error);
           debug('Build error resolved in registerRollupHooks');
         },
+      },
+
+      webpack: (compiler) => {
+        compiler.hooks.done.tap('BuildErrorTool', (stats) => {
+          debug('Build ended');
+
+          const errors = stats.toJson().errors;
+          if (errors === undefined || errors.length === 0) {
+            debug('No errors found in stats');
+            self.buildError.resolve(undefined);
+          } else {
+            const err = errors!;
+            debug('Errors found in stats');
+            console.error('Build error:', err);
+            self.buildError.resolve(new Error(err.join('\n')));
+          }
+
+
+          debug('Build error resolved in registerWebpackHooks');
+        });
       }
     };
   }

@@ -59,8 +59,6 @@ const unpluginFactory = (pluginOpt: McpPluginOptions = {}) => {
   const customTools = pluginOpt.provideUnpluginMcpTools?.() ?? [];
   rollupMcpServer.registerUnpluginMcpTools([...defaultTools, ...customTools]);
 
-  console.log('current tools', customTools);
-
   const httpServerOptions = {
     port: httpServerPort,
     host: httpServerHost,
