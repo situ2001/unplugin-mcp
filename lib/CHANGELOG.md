@@ -1,5 +1,12 @@
 # rollup-plugin-mcp
 
+## 0.0.8
+
+### Patch Changes
+
+- 4ffefc8: feat: init webpack support
+- e795e9d: refactor: remove the obscure HTTP server initialization logic
+
 ## 0.0.7
 
 ### Patch Changes

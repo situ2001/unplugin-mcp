@@ -1,5 +1,13 @@
 # rollup-plugin-mcp
 
+## 0.0.8
+
+### Patch Changes
+
+- Updated dependencies [4ffefc8]
+- Updated dependencies [e795e9d]
+  - unplugin-mcp@0.0.8
+
 ## 0.0.7
 
 ### Patch Changes
