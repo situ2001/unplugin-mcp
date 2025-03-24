@@ -5,14 +5,19 @@
   "private": true,
   "scripts": {
     "build": "rollup -c ./rollup.config.js",
-    "dev": "export DEBUG=* && rollup -c ./rollup.config.js -w"
+    "dev": "export DEBUG=* && rollup -c ./rollup.config.js -w",
+    "webpack": "webpack",
+    "webpack:dev": "webpack --watch"
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-typescript": "^12.1.2",
     "rollup": "^4.35.0",
     "rollup-plugin-mcp": "workspace:*",
-    "unplugin-mcp": "workspace:*"
+    "ts-loader": "^9.5.2",
+    "unplugin-mcp": "workspace:*",
+    "webpack": "^5.98.0",
+    "webpack-cli": "^6.0.1"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.6.1"

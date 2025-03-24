@@ -115,11 +115,11 @@ Check `McpPluginOptions` in [types file](./lib/src/types.ts) for all available o
 
 > Notes: Currently, implementation of built-in tools is relatively simple and may not cover all edge cases.
 
-| Tool              | Description                             | Rollup |
-| ----------------- | --------------------------------------- | :----: |
-| `ModuleTool`      | Analyze module dependencies and imports |   ✅    |
-| `BuildConfigTool` | Inspect build configuration             |   ✅    |
-| `BuildErrorTool`  | Debug build errors                      |   ✅    |
+| Tool              | Description                             | Rollup | Webpack |
+| ----------------- | --------------------------------------- | :----: | :-----: |
+| `ModuleTool`      | Analyze module dependencies and imports |   ✅    |    ❌    |
+| `BuildConfigTool` | Inspect build configuration             |   ✅    |    ❌    |
+| `BuildErrorTool`  | Debug build errors                      |   ✅    |    ✅    |
 
 - ✅ = Supported
 - ❌ = Not yet implemented

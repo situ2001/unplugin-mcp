@@ -4,12 +4,15 @@ import { createHttpServer } from './web-server';
 import picocolors from 'picocolors';
 import process from 'node:process';
 import { serverManager } from './globals';
-import { createRollupPlugin, createUnplugin } from 'unplugin';
+import { createRollupPlugin, createUnplugin, createWebpackPlugin, UnpluginFactory } from 'unplugin';
 
 export { UnpluginMcpTool, UnpluginMcpToolSetupOptions } from './mcp-server';
 export { createHttpServer, setupRouteForMcpServer } from './web-server';
 
-const unpluginFactory = (pluginOpt: McpPluginOptions = {}) => {
+const unpluginFactory: UnpluginFactory<McpPluginOptions> = (
+  pluginOpt: McpPluginOptions = {},
+  meta
+) => {
   const {
     port: httpServerPort = 14514,
     host: httpServerHost = 'localhost',
@@ -17,21 +20,27 @@ const unpluginFactory = (pluginOpt: McpPluginOptions = {}) => {
     useOnlyInWatchMode = true,
   } = pluginOpt;
 
-  const isRollupWatchMode = process.env.ROLLUP_WATCH === "true";
-  if (!isRollupWatchMode && useOnlyInWatchMode) {
-    console.log(
-      picocolors.yellow('MCP server is only used in watch mode.'),
-    );
-    console.log(
-      picocolors.dim('You can use the `--watch` flag to enable rollup watch mode.')
-    )
-    console.log(
-      picocolors.dim('Or set `useOnlyInWatchMode` in plugin options to false to use it in non-watch mode.')
-    )
+  if (useOnlyInWatchMode) {
+    if (meta.framework === 'rollup') {
+      const isRollupWatchMode = process.env.ROLLUP_WATCH === "true";
+      if (!isRollupWatchMode && useOnlyInWatchMode) {
+        console.log(
+          picocolors.yellow('MCP server is only used in watch mode.'),
+        );
+        console.log(
+          picocolors.dim('You can use the `--watch` flag to enable rollup watch mode.')
+        )
+        console.log(
+          picocolors.dim('Or set `useOnlyInWatchMode` in plugin options to false to use it in non-watch mode.')
+        )
 
-    return {
-      name: 'mcp',
-    };
+        return {
+          name: 'mcp',
+        };
+      }
+    } else if (meta.framework === 'webpack') {
+      // TODO check if webpack is in watch mode
+    }
   }
 
   // Initialize or use provided MCP server
@@ -92,3 +101,4 @@ export const unplugin = createUnplugin(unpluginFactory);
 export default unplugin;
 
 export const rollupPlugin = createRollupPlugin(unpluginFactory);
+export const webpackPlugin = createWebpackPlugin(unpluginFactory);
