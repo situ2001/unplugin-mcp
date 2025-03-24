@@ -69,23 +69,20 @@ const unpluginFactory = (pluginOpt: McpPluginOptions = {}) => {
 
   let httpServer = serverManager.getHttpServer();
 
-  if (!httpServer) {
-    let httpServer = serverManager.getHttpServer();
-    if (!httpServer) {
-      httpServer = (
-        pluginOpt.httpServer?.(mcpServer, httpServerOptions)
-        ?? createHttpServer(mcpServer, httpServerOptions)
-      );
+  if (httpServer === null) {
+    httpServer = (
+      pluginOpt.httpServer?.(mcpServer, httpServerOptions)
+      ?? createHttpServer(mcpServer, httpServerOptions)
+    );
 
-      serverManager.setHttpServer(httpServer);
-      console.log(
-        picocolors.green('MCP server HTTP server created')
-      );
-    }
+    serverManager.setHttpServer(httpServer);
+    console.log(
+      picocolors.green('MCP server HTTP server created')
+    );
+  }
 
-    if (!serverManager.isRunning()) {
-      serverManager.startHttpServer(httpServerOptions);
-    }
+  if (!serverManager.isRunning()) {
+    serverManager.startHttpServer(httpServerOptions);
   }
 
   const plugins = rollupMcpServer.getUnpluginsFromTools();
