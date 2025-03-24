@@ -1,7 +1,7 @@
 {
   "name": "rollup-plugin-mcp",
   "type": "module",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "A rollup plugin that creates an MCP Server to provide MCP tools.",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
