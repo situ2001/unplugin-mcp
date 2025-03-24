@@ -62,10 +62,7 @@ export class UnpluginMcpServer {
   }
 
   getUnpluginsFromTools(): UnpluginOptions[] {
-    const plugins = this.unpluginMcpTools.map((tool) => {
-      console.log(tool);
-      return tool.registerPlugins()
-    });
+    const plugins = this.unpluginMcpTools.map((tool) => tool.registerPlugins());
 
     const anyToolsHaveEffect = this.unpluginMcpTools.some((tool) => tool.affectsBuildProcess);
     if (anyToolsHaveEffect && plugins.length > 1) {
@@ -73,7 +70,7 @@ export class UnpluginMcpServer {
         picocolors.yellow(
           'Multiple tools with effects detected. Please try your best to use only one tool at a time.'
           + '\n'
-          + 'Cause it may cause unexpected behavior.'
+          + 'This may cause unexpected behavior.'
         )
       );
     }
