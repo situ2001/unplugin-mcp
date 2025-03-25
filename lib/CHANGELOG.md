@@ -1,5 +1,11 @@
 # rollup-plugin-mcp
 
+## 0.0.9
+
+### Patch Changes
+
+- 6e085b3: impl BuildConfigTool for webpack
+
 ## 0.0.8
 
 ### Patch Changes
