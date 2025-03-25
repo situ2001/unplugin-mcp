@@ -32,8 +32,8 @@ export default {
     mcp({
       provideUnpluginMcpTools: () => [
         new BuildErrorTool(),
+        new BuildConfigTool(),
         // new ModuleTool(),
-        // new BuildConfigTool(),
       ]
     })
   ]

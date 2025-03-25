@@ -41,6 +41,9 @@
     "type": "git",
     "url": "https://github.com/situ2001/unplugin-mcp.git"
   },
+  "peerDependencies": {
+    "webpack": "^5.0.0"
+  },
   "devDependencies": {
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-typescript": "^12.1.2",

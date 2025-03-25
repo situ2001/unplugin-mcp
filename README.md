@@ -118,7 +118,7 @@ Check `McpPluginOptions` in [types file](./lib/src/types.ts) for all available o
 | Tool              | Description                             | Rollup | Webpack |
 | ----------------- | --------------------------------------- | :----: | :-----: |
 | `ModuleTool`      | Analyze module dependencies and imports |   ✅    |    ❌    |
-| `BuildConfigTool` | Inspect build configuration             |   ✅    |    ❌    |
+| `BuildConfigTool` | Inspect build configuration             |   ✅    |    ✅    |
 | `BuildErrorTool`  | Debug build errors                      |   ✅    |    ✅    |
 
 - ✅ = Supported
