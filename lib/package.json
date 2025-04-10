@@ -1,7 +1,7 @@
 {
   "name": "unplugin-mcp",
   "type": "module",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "A unified plugin for developers integrating MCP servers into modern JavaScript build tools, including Webpack, Rollup, Vite, and more.",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
