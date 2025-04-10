@@ -1,5 +1,11 @@
 # rollup-plugin-mcp
 
+## 0.0.10
+
+### Patch Changes
+
+- 938339c: update description
+
 ## 0.0.9
 
 ### Patch Changes
