@@ -3,7 +3,7 @@ import { nodeResolve } from '@rollup/plugin-node-resolve';
 import typescript from '@rollup/plugin-typescript';
 import { rollupPlugin as mcp } from 'unplugin-mcp';
 
-import { ModuleTool,BuildConfigTool,BuildErrorTool } from 'unplugin-mcp/tools'
+import { ModuleTool,BuildConfigTool,BuildErrorTool, BundleSizeTool } from 'unplugin-mcp/tools'
 
 export default defineConfig({
   input: 'src/index.ts',
@@ -17,7 +17,8 @@ export default defineConfig({
       provideUnpluginMcpTools: () => [
         new ModuleTool(),
         new BuildConfigTool(),
-        new BuildErrorTool()
+        new BuildErrorTool(),
+        new BundleSizeTool()
       ]
     }),
 
