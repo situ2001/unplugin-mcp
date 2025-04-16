@@ -1,5 +1,11 @@
 # rollup-plugin-mcp
 
+## 0.0.11
+
+### Patch Changes
+
+- 8cd4e45: new tool: bundle-size for rollup
+
 ## 0.0.10
 
 ### Patch Changes
