@@ -1,5 +1,6 @@
 # unplugin-mcp
 
+[![GitHub Repo](https://img.shields.io/badge/GitHub-repo-080f12?style=flat&logo=github&logoColor=white)](https://github.com/situ2001/unplugin-mcp)
 [![npm version](https://img.shields.io/npm/v/unplugin-mcp?style=flat&colorA=080f12&colorB=1fa669)](https://www.npmjs.com/package/unplugin-mcp)
 [![npm download](https://img.shields.io/npm/dt/unplugin-mcp?style=flat&colorA=080f12&colorB=1fa669)](https://www.npmjs.com/package/unplugin-mcp)
 ![npm license](https://img.shields.io/npm/l/unplugin-mcp?style=flat&colorA=080f12&colorB=1fa669)
