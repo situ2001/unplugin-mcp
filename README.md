@@ -120,6 +120,7 @@ Check `McpPluginOptions` in [types file](./lib/src/types.ts) for all available o
 | `ModuleTool`      | Analyze module dependencies and imports |   ✅    |    ❌    |
 | `BuildConfigTool` | Inspect build configuration             |   ✅    |    ✅    |
 | `BuildErrorTool`  | Debug build errors                      |   ✅    |    ✅    |
+| `BundleSizeTool`  | Inspect size of bundle and its modules  |   ✅    |    ❌    |
 
 - ✅ = Supported
 - ❌ = Not yet implemented
