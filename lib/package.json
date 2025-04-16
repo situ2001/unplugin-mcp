@@ -62,7 +62,7 @@
     "@types/koa": "^2.15.0",
     "@types/koa__router": "^12.0.4",
     "debug": "^4.4.0",
-    "koa": "^2.16.0",
+    "koa": "^2.16.1",
     "picocolors": "^1.1.1",
     "promise-deferred": "^2.0.4",
     "rollup-plugin-node-externals": "^8.0.0",
