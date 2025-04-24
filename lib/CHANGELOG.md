@@ -1,5 +1,11 @@
 # rollup-plugin-mcp
 
+## 0.0.12
+
+### Patch Changes
+
+- bd7ac8a: chore: update koa version
+
 ## 0.0.11
 
 ### Patch Changes
