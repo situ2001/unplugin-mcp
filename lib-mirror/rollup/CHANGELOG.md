@@ -1,5 +1,13 @@
 # rollup-plugin-mcp
 
+## 0.0.12
+
+### Patch Changes
+
+- bd7ac8a: chore: update koa version
+- Updated dependencies [bd7ac8a]
+  - unplugin-mcp@0.0.12
+
 ## 0.0.11
 
 ### Patch Changes
