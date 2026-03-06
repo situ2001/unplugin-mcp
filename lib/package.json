@@ -51,7 +51,7 @@
     "@types/node": "^22.13.10",
     "@types/promise-deferred": "^2.0.5",
     "rimraf": "^6.0.1",
-    "rollup": "^4.35.0",
+    "rollup": "^4.59.0",
     "rollup-plugin-typescript2": "^0.36.0",
     "tslib": "^2.8.1",
     "typescript": "^5.8.2"

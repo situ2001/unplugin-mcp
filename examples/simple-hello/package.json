@@ -12,7 +12,7 @@
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-typescript": "^12.1.2",
-    "rollup": "^4.35.0",
+    "rollup": "^4.59.0",
     "rollup-plugin-mcp": "workspace:*",
     "ts-loader": "^9.5.2",
     "unplugin-mcp": "workspace:*",
